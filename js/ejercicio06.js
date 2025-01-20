@@ -49,18 +49,49 @@ let addItemButton = "";
 
  function crearbotones(event) {
   // Realiza las acciones de los botones subir, borrar y bajar para los elementos de la lista
+  let li = event.target.closest('li');
+
+  if (event.target.classList == 'subir') {
+    let prevLi = li.previousElementSibling;
+    if (prevLi) {
+      listUl.insertBefore(li, prevLi);
+    }
+  }
+  if (event.target.classList == 'bajar') {
+    let nextLi = li.nextElementSibling;
+    if (nextLi) {
+      listUl.insertBefore(nextLi, li);
+    }
+  }
+  if (event.target.classList == 'borrar') {
+    li.remove();
+  }
  }
 
  function MostrarOcultarLista(){
   // Muestra u oculta la información de las cosas que son violeta (listDiv)
+  if (listDiv.style.display == 'none') {
+    listDiv.style.display = 'block';
+    toggleList.textContent = 'Ocultar lista';
+  } else {
+    listDiv.style.display = 'none';
+    toggleList.textContent = 'Mostrar lista';
+  }
  }
  function CambiarTextoLista(){
   //Modifica  el texto de la lista (descriptionP) con el valor del input (descriptionInput).
   // Inicialmente COSAS QUE SON VIOLETA
+  descriptionP.textContent = descriptionInput.value;
  }
  function AñadirElemento(){
   //Añade un nuevo elemento a la lista con el valor del input (addItemInput). 
   //Recuerda que el elemento tendrá que tener sus botones de subir, bajar y borrar.
+    let nuevoElemento = addItemInput.value;
+    let nuevoLi = document.createElement("li");
+    nuevoLi.textContent = nuevoElemento;
+    attachListItemButtons(nuevoLi);
+    listUl.appendChild(nuevoLi);
+
  }
 
 
