@@ -81,7 +81,9 @@ let addItemButton = "";
  function CambiarTextoLista(){
   //Modifica  el texto de la lista (descriptionP) con el valor del input (descriptionInput).
   // Inicialmente COSAS QUE SON VIOLETA
-  descriptionP.textContent = descriptionInput.value;
+  if (descriptionInput.value != "") {
+    descriptionP.textContent = descriptionInput.value;
+  }
  }
  function AñadirElemento(){
   //Añade un nuevo elemento a la lista con el valor del input (addItemInput). 
