@@ -87,11 +87,12 @@ let addItemButton = "";
   //Añade un nuevo elemento a la lista con el valor del input (addItemInput). 
   //Recuerda que el elemento tendrá que tener sus botones de subir, bajar y borrar.
     let nuevoElemento = addItemInput.value;
-    let nuevoLi = document.createElement("li");
-    nuevoLi.textContent = nuevoElemento;
-    attachListItemButtons(nuevoLi);
-    listUl.appendChild(nuevoLi);
-
+    if (nuevoElemento != "") {
+      let nuevoLi = document.createElement("li");
+      nuevoLi.textContent = nuevoElemento;
+      attachListItemButtons(nuevoLi);
+      listUl.appendChild(nuevoLi);
+    }
  }
 
 
